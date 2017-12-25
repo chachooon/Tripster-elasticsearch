@@ -9,4 +9,5 @@ target
 bin
 *.DS_Store
 *.iml
-
+.springBeans
+.gitignore

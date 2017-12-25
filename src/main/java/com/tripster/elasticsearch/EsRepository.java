@@ -9,7 +9,7 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHits;
-import org.junit.Test;
+
 
 import static org.elasticsearch.common.xcontent.XContentFactory.*;
 
