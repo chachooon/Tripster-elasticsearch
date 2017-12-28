@@ -4,6 +4,8 @@ import java.util.*;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.search.SearchHit;
@@ -27,6 +29,7 @@ public class EsMemberDAOimpl implements EsMemberDAO {
 		
 		ArrayList<EsMemberVO> result = new ArrayList<EsMemberVO>();
 		ObjectMapper om = new ObjectMapper(); 
+		om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		
 		for(SearchHit hit : hits) {
 	    		String sJson = hit.getSourceAsString();

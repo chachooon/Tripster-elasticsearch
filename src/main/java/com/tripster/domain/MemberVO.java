@@ -5,7 +5,6 @@ import lombok.*;
 //lombok 설치방법 (http://countryxide.tistory.com/16)
 import org.springframework.format.annotation.DateTimeFormat;
 
-
 @Data 
 public class MemberVO {
 	

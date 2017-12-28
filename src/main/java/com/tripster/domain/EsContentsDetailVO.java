@@ -2,7 +2,10 @@ package com.tripster.domain;
 
 import lombok.*;
 
-@Data
+import com.fasterxml.jackson.annotation.JsonFilter;
+
+@Data 
+@JsonFilter("EsContentsFilter")
 public class EsContentsDetailVO {
 	private String contentsDetail;
 }

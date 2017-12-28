@@ -1,14 +1,13 @@
 package com.tripster.domain;
 
-import java.util.*;
 import lombok.*;
-//lombok 설치방법 (http://countryxide.tistory.com/16)
+
 import com.fasterxml.jackson.annotation.JsonFilter;
 
 @Data 
-@JsonFilter("PlanJsonFilter")
+@JsonFilter("EsPlanFilter")
 public class PlanDetailVO {
-	private int planDetailID; //일정 삭세 식별 번호.
+	private int planDetailID; //일정 상세 식별 번호.
 	private int planID; //일정 식별번호.
 	private int contentsID; //컨텐츠 식별번호.
 	private String title; //컨텐츠 제목.

@@ -12,9 +12,9 @@ import com.tripster.domain.EsContentsDetailVO;
 @JsonFilter("EsContentsFilter")
 public class EsContentsVO extends ContentsVO{
 
-	private EsContentsDetailVO contentsDetail;
+	private EsContentsDetailVO EsContentsDetailVO;
 	
-	private List<ContentsReviewVO> reviews;
+	private List<ContentsReviewVO> ContentsReviewVO;
 	
 }		
 

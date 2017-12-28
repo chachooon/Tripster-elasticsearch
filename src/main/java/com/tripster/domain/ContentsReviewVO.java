@@ -3,7 +3,10 @@ package com.tripster.domain;
 import java.util.*;
 import lombok.*;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 @Data 
+@JsonFilter("EsContentsFilter")
 public class ContentsReviewVO {
 	//리뷰 작성자 ID
 	private Integer memberID;
