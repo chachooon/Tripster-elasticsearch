@@ -17,7 +17,9 @@ public class EsConfig {
     public Client client() throws Exception {
         Settings settings = Settings.builder()
                 .put("cluster.name",  "my-application").build();
-
+        
+        InetAddress address = InetAddress.getLocalHost();
+       
         return new PreBuiltTransportClient(settings)
                 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("localhost"), 9300));
 
