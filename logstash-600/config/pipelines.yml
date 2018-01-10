@@ -13,7 +13,12 @@
 # - pipeline.id: another_test
 #   queue.type: persisted
 #   path.config: "/tmp/logstash/*.config"
-#
+- pipeline.id: contents
+  path.config: "./pipeline/mysql-contents.config"
+- pipeline.id: plan
+  path.config: "./pipeline/mysql-plan.config"
+- pipeline.id: member
+  path.config: "./pipeline/mysql-member.config"
 # Available options:
 #
 #   # name of the pipeline
