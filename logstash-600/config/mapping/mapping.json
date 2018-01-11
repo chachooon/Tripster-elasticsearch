@@ -1,0 +1,77 @@
+// 인덱스 삭제
+DELETE test
+
+// 맵핑
+PUT test
+{
+  "settings": {
+      "number_of_shards": 5,
+      "number_of_replicas": 1,
+      "analysis": {
+          "analyzer": {
+              "default": {
+                  "type": "standard"
+              },
+              "ko_analyzer": {
+                  "type": "custom",
+                  "tokenizer": "arirang_tokenizer",
+                  "analyzer": "arirang_analyzer"
+              }
+          }
+      }
+  },
+  "mappings": {
+    "contents": {
+      "properties": {
+        "Category_ID": { "type": "integer" },
+        "Contents_ID": { "type": "integer" },
+        "Contents_Title": { "type": "text" },
+        "Contents_Keyword": { "type": "text" },
+        "Contents_Location": { "type": "text" },
+        "Contents_Country": { "type": "text" },
+        "Contents_City": { "type": "text" },
+        "Contents_Rating": { "type": "integer" },
+        "Contents_View_Cnt": { "type": "integer" },
+        "Contents_Review_Cnt": { "type": "integer" },
+        "Contents_Scrap_Cnt": { "type": "integer" },
+        "Contents_Thumbnail": { "type": "text" },
+        "Created": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
+        "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
+        "@timestamp": { "type": "date", "format": "strict_date_optional_time||epoch_millis"}
+      }
+    },
+    "contents_detail": {
+      "_parent": {
+        "type": "contents"
+      }
+    },
+    "contents_review": {
+      "_parent": {
+        "type": "contents"
+      }
+    },
+    "member": {
+
+    },
+    "plan": {
+      "_parent": {
+        "type": "member"
+      }
+    },
+    "plan_detail": {
+      "_parent": {
+        "type": "plan"
+      }
+    },
+    "plan_memo": {
+      "_parent": {
+        "type": "plan_detail"
+      }
+    },
+    "plan_reply": {
+      "_parent": {
+        "type": "plan"
+      }
+    }
+  }
+}
