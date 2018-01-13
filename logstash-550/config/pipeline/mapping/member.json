@@ -1,0 +1,34 @@
+{
+  "template": "member-*",
+  "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "analysis": {
+          "analyzer": {
+              "default": {
+                  "type": "standard"
+              },
+              "ko_analyzer": {
+                  "type": "custom",
+                  "tokenizer": "arirang_tokenizer",
+                  "analyzer": "arirang_analyzer"
+              }
+          }
+      }
+  },
+  "mappings": {
+    "member": {
+      "properties": {
+        "Member_ID": { "type": "integer" },
+        "Member_Email": { "type": "text" },
+        "Member_Name": { "type": "text" },
+        "Member_Sex": { "type": "text" },
+        "Member_Birthday": { "type": "date", "format": "yyyy-MM-dd" },
+        "Member_Picture": { "type": "text" },
+        "Created": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
+        "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
+        "@timestamp": { "type": "date", "format": "strict_date_optional_time||epoch_millis"}
+      }
+    }
+  }
+}

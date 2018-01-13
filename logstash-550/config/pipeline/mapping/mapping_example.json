@@ -1,0 +1,94 @@
+"mapping" : {
+    "TYPE_NAME" : {
+        "analyzer" : "standard",
+        "index_analyzer" : "stadnard",
+        "search_analyzer" : "standard",
+        "_id" : {
+            "index" : "not_analyzed",
+            "store" : "yes",
+            "path" : "FIELD_NAME"
+        },
+        "_type" : {
+            "index" : "not_analyzed",
+            "store" : "yes"
+        },
+        "_source" : {
+            "enabled" : "false"
+        },
+        "_all" : {
+            "enabled" : "false"
+        },
+        "_boost" : {
+            "name" : "_boost",
+            "null_value" : 1.0
+        },
+        "_parent" : {
+            "type" : "PARENT_TYPE_NAME"
+        },
+        "_routing" : {
+            "required" : true,
+            "path" : "TYPE_NAME.FIELD_NAME"
+        },
+        "_timestamp" : {
+            "enabled" : true,
+            "path" : "DATE_FIELD_NAME",
+            "format" : "dateOptionalTime"
+        },
+        "properties" : {
+            "FIELD_NAME" : {
+                "type" : "string",
+                "index_name" : ,
+                "store" : ,
+                "index" : ,
+                "term_vector" : ,
+                "boost" : ,
+                "null_value" : ,
+                "omit_norms" : ,
+                "omit_term_freq_and_positions" : ,
+                "index_options" : ,
+                "analyzer" : ,
+                "index_analyzer" : ,
+                "search_analyzer" : ,
+                "include_in_all" : ,
+                "ignore_above" : ,
+                "position_offset_gap" :
+            },
+            "FIELD_NAME" : {
+                "type" : "float, double, byte, short, integer, and long",
+                "index_name" : ,
+                "store" : ,
+                "index" : ,
+                "precision_step" : ,
+                "null_value" : ,
+                "boost" : ,
+                "include_in_all" : ,
+                "ignore_malformed" :
+            },
+            "FIELD_NAME" : {
+                "type" : "date",
+                "index_name" : ,
+                "format" : ,
+                "store" : ,
+                "index" : ,
+                "precision_step" : ,
+                "null_value" : ,
+                "boost" : ,
+                "include_in_all" : ,
+                "ignore_malformed" :
+            },
+            "FIELD_NAME" : {
+                "type" : "boolean",
+                "index_name" : ,
+                "store" : ,
+                "index" : ,
+                "null_value" : ,
+                "boost" : ,
+                "include_in_all" : ,
+            },
+            "FIELD_NAME" : {
+                "type" : "binary",
+                "index_name" : ,
+            }
+        }
+    }
+}

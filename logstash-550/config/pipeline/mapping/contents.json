@@ -1,0 +1,49 @@
+{
+  "template": "contents-*",
+  "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "analysis": {
+          "analyzer": {
+              "default": {
+                  "type": "standard"
+              },
+              "ko_analyzer": {
+                  "type": "custom",
+                  "tokenizer": "arirang_tokenizer",
+                  "analyzer": "arirang_analyzer"
+              }
+          }
+      }
+  },
+  "mappings": {
+    "contents": {
+      "properties": {
+        "Category_ID": { "type": "integer" },
+        "Contents_ID": { "type": "integer" },
+        "Contents_Title": { "type": "text" },
+        "Contents_Category": { "type": "text" },
+        "Contents_Keyword": { "type": "text" },
+        "Contents_Location": { "type": "text" },
+        "Contents_Rating": { "type": "double" },
+        "Contents_View_Cnt": { "type": "integer" },
+        "Contents_Review_Cnt": { "type": "integer" },
+        "Contents_Scrap_Cnt": { "type": "integer" },
+        "Contents_Thumbnail": { "type": "text" },
+        "Contents_Contents": { "type": "text" },
+        "Contents_Tel": {"type": "text"},
+        "Contents_City": { "type": "text" },
+        "Contents_Country": { "type": "text" },
+        "Contents_City": { "type": "text" },
+        "Contnets_Time": {"type": "text"},
+        "Contents_Tel": {"type": "text"},
+        "Contents_Lat": { "type": "double" },
+        "Contents_Long": { "type": "double" },
+        "Contents_Target": {"type": "text"},
+        "Contents_Target_ID": {"type": "text"},
+        "Created": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
+        "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"}
+      }
+    }
+  }
+}
