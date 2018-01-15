@@ -19,15 +19,14 @@
   "mappings": {
     "member": {
       "properties": {
-        "Member_ID": { "type": "integer" },
-        "Member_Email": { "type": "text" },
-        "Member_Name": { "type": "text" },
-        "Member_Sex": { "type": "text" },
-        "Member_Birthday": { "type": "date", "format": "yyyy-MM-dd" },
-        "Member_Picture": { "type": "text" },
+        "Member_ID": { "type": "integer", "index": "no"},
+        "Member_Email": { "type": "text", "index": "not_analyzed" },
+        "Member_Name": { "type": "text", "index": "not_analyzed"},
+        "Member_Sex": { "type": "text", "index": "not_analyzed"},
+        "Member_Birthday": { "type": "date", "format": "yyyy-MM-dd", "index": "not_analyzed"},
+        "Member_Picture": { "type": "text", "index": "no"},
         "Created": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
-        "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
-        "@timestamp": { "type": "date", "format": "strict_date_optional_time||epoch_millis"}
+        "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"}
       }
     }
   }

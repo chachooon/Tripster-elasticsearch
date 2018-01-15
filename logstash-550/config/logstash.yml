@@ -34,11 +34,11 @@
 #
 # This defaults to the number of the host's CPU cores.
 #
-# pipeline.workers: 2
+pipeline.workers: 3
 #
 # How many workers should be used per output plugin instance
 #
-# pipeline.output.workers: 1
+pipeline.output.workers: 3
 #
 # How many events to retrieve from inputs before sending to filters+workers
 #
@@ -61,7 +61,7 @@
 #
 # Where to fetch the pipeline configuration for the main pipeline
 #
-path.config: "config/pipeline/mysql-member.config"
+path.config: "config/pipeline/logstash.config"
 #
 # Pipeline configuration string for the main pipeline
 #
@@ -164,7 +164,7 @@ path.config: "config/pipeline/mysql-member.config"
 #
 # Bind address for the metrics REST endpoint
 #
-# http.host: "127.0.0.1"
+# http.host: "211.117.65.79"
 #
 # Bind port for the metrics REST endpoint, this option also accept a range
 # (9600-9700) and logstash will pick up the first available ports.

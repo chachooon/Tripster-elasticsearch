@@ -19,12 +19,14 @@
   "mappings": {
     "plan": {
       "properties": {
-        "Plan_ID": { "type": "integer" },
-        "Member_ID": { "type": "integer" },
-        "Plan_Title": { "type": "text" },
-        "Plan_StartDate": { "type": "date", "format": "yyyy-MM-dd"},
-        "Plan_EndDate": { "type": "date", "format": "yyyy-MM-dd"},
-        "Plan_EndChk": { "type": "integer" },
+        "Plan_ID": { "type": "integer", "index": "no" },
+        "Member_ID": { "type": "integer", "index": "no" },
+        "Member_Name": { "type":"text", "index": "not_analyzed"},
+        "Plan_Title": { "type": "text", "index":"analyzed" },
+        "Plan_StartDate": { "type": "date", "format": "yyyy-MM-dd", "index": "not_analyzed"},
+        "Plan_EndDate": { "type": "date", "format": "yyyy-MM-dd", "index": "not_analyzed"},
+        "Plan_EndChk": { "type": "integer","index": "not_analyzed" },
+        "Plan_Like_Cnt": {"type": "integer", "index":"no"},
         "Created": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
         "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"}
       }
