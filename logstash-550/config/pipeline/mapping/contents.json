@@ -1,45 +1,51 @@
 {
-  "template": "contents-*",
-  "settings": {
-      "number_of_shards": 1,
-      "number_of_replicas": 0,
-      "analysis": {
-          "analyzer": {
-              "default": {
-                  "type": "standard"
-              },
-              "ko_analyzer": {
-                  "type": "custom",
-                  "tokenizer": "arirang_tokenizer",
-                  "analyzer": "arirang_analyzer"
+  "template":"contents*",
+  "settings" : {
+      "index" : {
+          "number_of_shards" : 5,
+          "number_of_replicas" : 1,
+          "analysis" : {
+              "analyzer" : {
+                  "arirang_analyzer" : {
+                      "type" : "custom",
+                      "tokenizer" : "arirang_tokenizer",
+                      "filter" : ["lowercase", "trim", "arirang_filter"]
+                  }
               }
           }
       }
   },
-  "mappings": {
-    "contents": {
-      "analyzer":"ko_analyzer",
-      "properties": {
-        "Category_ID": { "type": "integer", "index": "no" },
-        "Contents_ID": { "type": "integer", "index": "no" },
-        "Contents_Title": { "type": "text", "analyzer": "ko_analyzer" },
-        "Category_Value_kor": { "type": "text", "index": "not_analyzed" },
-        "Contents_Keyword": { "type": "text", "analyzer": "ko_analyzer" },
-        "Contents_Location": { "type": "text", "index":"not_analyzed" },
-        "Contents_Rating": { "type": "double", "index": "no" },
-        "Contents_View_Cnt": { "type": "integer", "index": "no" },
-        "Contents_Review_Cnt": { "type": "integer","index": "no" },
-        "Contents_Scrap_Cnt": { "type": "integer", "index": "no" },
-        "Contents_Thumbnail": { "type": "text", "index": "no" },
-        "Contents_Contents": { "type": "text", "analyzer": "ko_analyzer" },
-        "Contents_City": { "type": "text", "index": "no" },
-        "Contents_Country": { "type": "text", "index": "no" },
-        "Contents_Tel": {"type": "text", "index": "no"},
-        "Contnets_Time": {"type": "text", "index": "no"},
-        "Contents_Lat": { "type": "double", "index": "no" },
-        "Contents_Long": { "type": "double", "index": "no" },
-        "Created": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
-        "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"}
+  "mappings" : {
+    "contents" : {
+      "properties" : {
+        "category_id": { "type": "integer", "index": false },
+        "contents_id": { "type": "integer", "index": false },
+        "contents_title": {
+          "type" : "text",
+          "index_options" : "positions",
+          "analyzer" : "arirang_analyzer"
+        },
+        "category_value_kor": { "type" : "keyword" },
+        "contents_keyword": { "type" : "keyword" },
+        "contents_city": { "type": "keyword", "index": true },
+        "contents_country": { "type": "keyword", "index": true },
+        "contents_location": { "type": "text", "index":false },
+        "contents_rating": { "type": "double", "index": false },
+        "contents_view_cnt": { "type": "integer", "index": false },
+        "contents_review_cnt": { "type": "integer","index": false },
+        "contents_scrap_cnt": { "type": "integer", "index": false },
+        "contents_thumbnail": { "type": "text", "index": false },
+        "contents_contents":{
+          "type" : "text",
+          "index_options" : "positions",
+          "analyzer" : "arirang_analyzer"
+        },
+        "contents_time": { "type": "text", "index": false },
+        "contents_tel": { "type": "text", "index": false },
+        "contents_lat": { "type": "double", "index": false},
+        "contents_long": { "type": "double", "index": false},
+        "created": { "type": "date", "index": false},
+        "updated": { "type": "date", "index": false}
       }
     }
   }

@@ -1,33 +1,38 @@
 {
-  "template": "member-*",
-  "settings": {
-      "number_of_shards": 1,
-      "number_of_replicas": 0,
-      "analysis": {
-          "analyzer": {
-              "default": {
-                  "type": "standard"
-              },
-              "ko_analyzer": {
-                  "type": "custom",
-                  "tokenizer": "arirang_tokenizer",
-                  "analyzer": "arirang_analyzer"
-              }
+  "template": "member*",
+  "settings" : {
+    "index" : {
+      "number_of_shards" : 5,
+      "number_of_replicas" : 1,
+      "analysis" : {
+        "analyzer" : {
+          "arirang_analyzer" : {
+            "type" : "custom",
+            "tokenizer" : "arirang_tokenizer",
+            "filter" : ["lowercase", "trim", "arirang_filter"]
           }
+        }
       }
+    }
   },
-  "mappings": {
-    "member": {
-      "properties": {
-        "Member_ID": { "type": "integer", "index": "no"},
-        "Member_Email": { "type": "text", "index": "not_analyzed" },
-        "Member_Name": { "type": "text", "index": "not_analyzed"},
-        "Member_Sex": { "type": "text", "index": "not_analyzed"},
-        "Member_Birthday": { "type": "date", "format": "yyyy-MM-dd", "index": "not_analyzed"},
-        "Member_Picture": { "type": "text", "index": "no"},
-        "Created": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"},
-        "Updated": { "type": "date", "format": "yyyy-MM-dd HH:mm:ss"}
-      }
+  "member": {
+    "properties": {
+      "type":{ "type": "text", "index": false },
+      "member_id": { "type": "integer", "index": false},
+      "member_name": {
+        "type" : "text",
+        "index" : true,
+        "store" : true,
+        "norms" : false,
+        "index_options" : "positions",
+        "analyzer" : "arirang_analyzer"
+      },
+      "member_email": { "type": "text", "index": false },
+      "member_sex": { "type": "text", "index": false},
+      "member_birthday": { "type": "date", "index": false},
+      "member_picture": { "type": "text", "index": false},
+      "created": { "type": "date", "index": false},
+      "updated": { "type": "date", "index": false}
     }
   }
 }

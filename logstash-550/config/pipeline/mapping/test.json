@@ -1,0 +1,32 @@
+{
+    "template":"test*",
+    "settings" : {
+        "index" : {
+            "number_of_shards" : 5,
+            "number_of_replicas" : 1,
+            "analysis" : {
+                "analyzer" : {
+                    "arirang_analyzer" : {
+                        "type" : "custom",
+                        "tokenizer" : "arirang_tokenizer",
+                        "filter" : ["lowercase", "trim", "arirang_filter"]
+                    }
+                }
+            }
+        }
+    },
+    "mappings" : {
+        "contents" : {
+            "properties" : {
+                "contents_title": {
+                    "type" : "text",
+                    "index" : true,
+                    "store" : true,
+                    "norms" : false,
+                    "index_options" : "positions",
+                    "analyzer" : "arirang_analyzer"
+                }
+            }
+        }
+    }
+}
