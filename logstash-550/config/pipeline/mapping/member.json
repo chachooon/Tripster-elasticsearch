@@ -17,7 +17,6 @@
   },
   "member": {
     "properties": {
-      "type":{ "type": "text", "index": false },
       "member_id": { "type": "integer", "index": false},
       "member_name": {
         "type" : "text",
@@ -27,8 +26,8 @@
         "index_options" : "positions",
         "analyzer" : "arirang_analyzer"
       },
-      "member_email": { "type": "text", "index": false },
-      "member_sex": { "type": "text", "index": false},
+      "member_email": { "type" : "keyword" },
+      "member_sex": { "type" : "keyword" },
       "member_birthday": { "type": "date", "index": false},
       "member_picture": { "type": "text", "index": false},
       "created": { "type": "date", "index": false},

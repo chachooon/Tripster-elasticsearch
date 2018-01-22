@@ -22,6 +22,9 @@
         "contents_id": { "type": "integer", "index": false },
         "contents_title": {
           "type" : "text",
+          "index" : true,
+          "store" : true,
+          "norms" : false,
           "index_options" : "positions",
           "analyzer" : "arirang_analyzer"
         },
@@ -37,6 +40,9 @@
         "contents_thumbnail": { "type": "text", "index": false },
         "contents_contents":{
           "type" : "text",
+          "index" : true,
+          "store" : true,
+          "norms" : false,
           "index_options" : "positions",
           "analyzer" : "arirang_analyzer"
         },

@@ -19,7 +19,6 @@
     "properties": {
       "plan_id": { "type": "integer", "index": false },
       "member_id": { "type": "integer", "index": false },
-      "member_picture": { "type": "text", "index": false},
       "member_name": {
         "type" : "text",
         "index" : true,
@@ -28,6 +27,7 @@
         "index_options" : "positions",
         "analyzer" : "arirang_analyzer"
       },
+      "member_picture": { "type": "text", "index": false},
       "plan_title": {
         "type" : "text",
         "index" : true,
@@ -36,30 +36,6 @@
         "index_options" : "positions",
         "analyzer" : "arirang_analyzer"
       },
-      "plan_details": {
-        "type": "nested",
-        "properties": {
-          "plan_id": { "type": "integer", "index": false },
-          "plan_detail_id": { "type": "integer", "index": false },
-          "contents_id": { "type": "integer", "index": false },
-          "category_value_kor": { "type": "text", "index": false},
-          "contents_title": {
-            "type" : "text",
-            "index" : true,
-            "store" : true,
-            "norms" : false,
-            "index_options" : "positions",
-            "analyzer" : "arirang_analyzer"
-          },
-          "contents_keyword": { "type": "text", "index": false},
-          "memo_contents":{ "type": "text", "index": false},
-          "plan_detail_startime":{ "type": "text", "index": false},
-          "plan_detail_endtime":{ "type": "text", "index": false},
-          "plan_detail_date":{ "type": "text", "index": false},
-          "created":{ "type": "text", "index": false},
-          "updated":{ "type": "text", "index": false}
-        }
-      }
       "plan_startdate": { "type": "date", "index": false},
       "plan_enddate": { "type": "date", "index": false},
       "plan_endchk": { "type": "integer","index": false },
