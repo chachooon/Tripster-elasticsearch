@@ -49,9 +49,7 @@
         "contents_time": { "type": "text", "index": false },
         "contents_tel": { "type": "text", "index": false },
         "contents_lat": { "type": "double", "index": false},
-        "contents_long": { "type": "double", "index": false},
-        "created": { "type": "date", "index": false},
-        "updated": { "type": "date", "index": false}
+        "contents_long": { "type": "double", "index": false}
       }
     }
   }
